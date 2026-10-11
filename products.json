@@ -1,0 +1,130 @@
+{
+  "version": "2026-10-11",
+  "products": [
+    {
+      "id": "color-gel",
+      "name": "Denkmit Color Ultra Sensitive — Gel",
+      "kind": "liquid",
+      "standardKg": 4.5,
+      "capMl": 38,
+      "doses": [
+        [
+          35,
+          45,
+          55
+        ],
+        [
+          45,
+          55,
+          70
+        ],
+        [
+          55,
+          70,
+          90
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/1706634/denkmit-praci-gel-na-barevne-pradlo-ultra-sensitive"
+    },
+    {
+      "id": "white-gel",
+      "name": "Denkmit White Sense of Freshness — Gel",
+      "kind": "liquid",
+      "standardKg": 4.5,
+      "capMl": 60,
+      "doses": [
+        [
+          40,
+          40,
+          50
+        ],
+        [
+          40,
+          50,
+          65
+        ],
+        [
+          50,
+          65,
+          85
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/3117239/denkmit-praci-gel-na-bile-pradlo-sense-of-freshness"
+    },
+    {
+      "id": "sport-gel",
+      "name": "Denkmit Fresh Sensation Sport — Gel",
+      "kind": "liquid",
+      "standardKg": 2.5,
+      "capMl": 60,
+      "doses": [
+        [
+          40,
+          60,
+          80
+        ],
+        [
+          40,
+          80,
+          100
+        ],
+        [
+          80,
+          100,
+          120
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/1123237/denkmit-praci-gel-na-synteticke-pradlo-fresh-sensation"
+    },
+    {
+      "id": "white-powder",
+      "name": "Denkmit White Ultra Sensitive — Powder",
+      "kind": "powder",
+      "standardKg": 4.5,
+      "gramsPerMl": 0.7941176470588235,
+      "doses": [
+        [
+          45,
+          65,
+          105
+        ],
+        [
+          60,
+          85,
+          130
+        ],
+        [
+          75,
+          105,
+          150
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/1622337/denkmit-praci-prostredek-na-bile-pradlo-ultra-sensitive"
+    },
+    {
+      "id": "color-powder",
+      "name": "Denkmit Color Ultra Sensitive — Powder",
+      "kind": "powder",
+      "standardKg": 4.5,
+      "gramsPerMl": 0.7941176470588235,
+      "doses": [
+        [
+          45,
+          65,
+          105
+        ],
+        [
+          60,
+          85,
+          130
+        ],
+        [
+          75,
+          105,
+          150
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/1675190/denkmit-praci-prasek-na-barevne-pradlo-ultra-sensitive"
+    }
+  ]
+}
