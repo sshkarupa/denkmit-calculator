@@ -22,5 +22,8 @@
   "privacy": "Einstellungen werden nur auf diesem Gerät gespeichert.",
   "offline": "Nach dem ersten Aufruf offline nutzbar.",
   "error": "Dosierdaten konnten nicht geladen werden. Bitte online erneut versuchen.",
-  "install": "Über das Browsermenü zum Startbildschirm hinzufügen"
+  "install": "Über das Browsermenü zum Startbildschirm hinzufügen",
+  "additive": "Hygienespüler zusätzlich zum Waschmittel. Hinweise auf der Flasche beachten.",
+  "smallAdjustment": "Laut Etikett: 10 ml weniger bei kleiner Beladung",
+  "largeAdjustment": "Laut Etikett: 10 ml mehr bei 6–8 kg"
 }
