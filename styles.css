@@ -4,3 +4,6 @@ h1{font-weight:800;letter-spacing:-.055em}.brand{font-weight:800;letter-spacing:
 
 /* Hide non-applicable controls for fixed-dose additives. */
 .controls [hidden],.result [hidden]{display:none!important}
+
+/* Compact field icons and a product bottle illustration. */
+.heading-icon{display:inline-flex;align-items:center;gap:10px;min-width:0}.heading-icon label{margin:0}.ui-icon{width:23px;height:23px;flex:none}.field>.heading-icon{margin-bottom:12px}.field-line .heading-icon{flex:1}.product-picker{position:relative}.product-art{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:32px;height:42px;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1}.product-art svg{width:32px;height:42px;filter:drop-shadow(0 2px 2px #12382b22)}select#product{padding-left:51px;font-size:13px}legend .heading-icon{font-weight:750}@media(max-width:360px){select#product{font-size:12px;padding-left:46px}.product-art{left:6px}}
