@@ -35,10 +35,17 @@ async function changeLocale(nextLocale) {
     translations = nextTranslations;
     save('denkmit.locale', locale);
     renderTranslations();
+    $('#weight-label').textContent = `${format(state.weight)} kg`;
     renderResult();
   } catch (error) { console.warn('Unable to switch language', error); }
 }
 function estimatedDosage(product, baseDose, weight) {
+  if (product.kind === 'additive') return product.fixedMl;
+  if (product.loadAdjustments) {
+    const rules = product.loadAdjustments;
+    if (weight <= rules.smallKgMax) return Math.max(5, baseDose + rules.smallMl);
+    if (weight >= rules.largeKgMin && weight <= rules.largeKgMax) return baseDose + rules.largeMl;
+  }
   const ratio = weight / product.standardKg;
   if (ratio === 1) return baseDose;
   // Non-standard loads have no verified manufacturer table; apply a conservative floor.
@@ -55,8 +62,11 @@ function renderResult() {
   if (product.kind === 'liquid' && product.capMl) extras.push(translate('cap', { n: format(dose / product.capMl) }));
   if (product.kind === 'powder' && product.gramsPerMl) extras.push(translate('grams', { n: format(dose * product.gramsPerMl, 0) }));
   $('#secondary').textContent = extras.join(' · ');
-  const key = state.weight === product.standardKg ? 'standard' : state.weight < product.standardKg ? 'estimate' : 'larger';
-  $('#basis').textContent = translate(key, { kg: format(product.standardKg) });
+  const rules = product.loadAdjustments;
+  const isSmall = rules && state.weight <= rules.smallKgMax;
+  const isLarge = rules && state.weight >= rules.largeKgMin && state.weight <= rules.largeKgMax;
+  const key = product.kind === 'additive' ? 'additive' : isSmall ? 'smallAdjustment' : isLarge ? 'largeAdjustment' : state.weight === product.standardKg ? 'standard' : state.weight < product.standardKg ? 'estimate' : 'larger';
+  $('#basis').textContent = translate(key, { kg: format(product.standardKg || 0) });
   $('#source').href = product.source;
 }
 async function start() {
@@ -65,7 +75,12 @@ async function start() {
     if (!response.ok) throw new Error('Product request failed');
     ({ products } = await response.json());
     if (!products.some((product) => product.id === state.product)) state.product = products[0].id;
-    $('#product').replaceChildren(...products.map((product) => new Option(product.name, product.id)));
+    const detergentGroup = document.createElement('optgroup');
+    detergentGroup.label = 'Detergents';
+    const additiveGroup = document.createElement('optgroup');
+    additiveGroup.label = 'Additives';
+    products.forEach((product) => (product.kind === 'additive' ? additiveGroup : detergentGroup).append(new Option(product.name, product.id)));
+    $('#product').replaceChildren(detergentGroup, additiveGroup);
     $('#product').value = state.product;
     $('#weight').value = String(state.weight);
     document.querySelector(`input[name="hardness"][value="${state.hardness}"]`).checked = true;
