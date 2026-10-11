@@ -111,7 +111,7 @@ async function start() {
     detergentGroup.label = 'Detergents';
     const additiveGroup = document.createElement('optgroup');
     additiveGroup.label = 'Additives';
-    products.forEach((product) => (product.kind === 'additive' ? additiveGroup : detergentGroup).append(new Option(product.name, product.id)));
+    products.forEach((product) => (product.kind === 'additive' ? additiveGroup : detergentGroup).append(new Option(product.name.replace('Denkmit ', '').replace(' — Powder', ' · Powder').replace(' — Gel', ' · Gel').replace('Wool & Delicates Ultra Sensitive', 'Wool Ultra Sensitive'), product.id)));
     $('#product').replaceChildren(detergentGroup, additiveGroup);
     $('#product').value = state.product;
     $('#weight').value = String(state.weight);
@@ -123,7 +123,7 @@ async function start() {
     document.querySelectorAll('input[name="soil"]').forEach((input) => input.addEventListener('change', (event) => { state.soil = Number(event.target.value); renderResult(); }));
     $('#language').addEventListener('change', (event) => { void changeLocale(event.target.value); });
     $('#weight-label').textContent = `${format(state.weight)} kg`;
-    if ('serviceWorker' in navigator) window.addEventListener('load', () => { void navigator.serviceWorker.register('./sw.js'); });
+    if ('serviceWorker' in navigator) window.addEventListener('load', () => { void navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then((registration) => registration.update()).catch(console.warn); });
   } catch (error) {
     console.error(error);
     $('#dose').textContent = '—';
