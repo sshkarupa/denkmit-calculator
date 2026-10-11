@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-11-v2",
+  "version": "2026-10-11-v3",
   "products": [
     {
       "id": "color-gel",
@@ -184,6 +184,31 @@
       },
       "source": "https://www.dm.de/p/d/1302030/denkmit-feinwaschmittel-color-und-care",
       "sourceNote": "Bottle label; half load -10 ml, 6–8 kg +10 ml."
+    },
+    {
+      "id": "wool-gel",
+      "name": "Denkmit Wool & Delicates Ultra Sensitive — Gel",
+      "kind": "liquid",
+      "standardKg": 4.5,
+      "capMl": 38,
+      "doses": [
+        [
+          50,
+          75,
+          100
+        ],
+        [
+          50,
+          75,
+          100
+        ],
+        [
+          75,
+          100,
+          125
+        ]
+      ],
+      "source": "https://www.dm.cz/p/d/1508707/denkmit-praci-gel-na-jemne-pradlo-a-vlnu-ultra-sensitive"
     },
     {
       "id": "hygiene-rinse",
