@@ -67,7 +67,10 @@ function renderResult() {
   const isLarge = rules && state.weight >= rules.largeKgMin && state.weight <= rules.largeKgMax;
   const key = product.kind === 'additive' ? 'additive' : isSmall ? 'smallAdjustment' : isLarge ? 'largeAdjustment' : state.weight === product.standardKg ? 'standard' : state.weight < product.standardKg ? 'estimate' : 'larger';
   $('#basis').textContent = translate(key, { kg: format(product.standardKg || 0) });
-  $('#source').href = product.source;
+  $('#source').hidden = product.kind === 'additive';
+  if (product.kind !== 'additive') $('#source').href = product.source;
+  const additive = product.kind === 'additive';
+  document.querySelectorAll('.controls .field:nth-child(2), .controls fieldset').forEach((element) => { element.hidden = additive; });
 }
 async function start() {
   try {
