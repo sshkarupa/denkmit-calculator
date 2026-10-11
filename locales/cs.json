@@ -22,5 +22,8 @@
   "privacy": "Nastavení se ukládá pouze v tomto zařízení.",
   "offline": "Po prvním načtení funguje i bez internetu.",
   "error": "Údaje se nepodařilo načíst. Zkuste to znovu online.",
-  "install": "Přidejte na plochu přes nabídku prohlížeče"
+  "install": "Přidejte na plochu přes nabídku prohlížeče",
+  "additive": "Hygienická přísada k pracímu prostředku. Řiďte se návodem na obalu.",
+  "smallAdjustment": "Podle etikety: o 10 ml méně pro malou náplň",
+  "largeAdjustment": "Podle etikety: o 10 ml více pro 6–8 kg"
 }
