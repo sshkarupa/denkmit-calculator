@@ -22,5 +22,8 @@
   "privacy": "Preferences are stored only on this device.",
   "offline": "Works offline after the first visit.",
   "error": "Could not load dosage data. Try again online.",
-  "install": "Add to your home screen using the browser menu"
+  "install": "Add to your home screen using the browser menu",
+  "additive": "Hygiene rinse additive: use alongside detergent. Follow your bottle label.",
+  "smallAdjustment": "Label adjustment: 10 ml less for a small load",
+  "largeAdjustment": "Label adjustment: 10 ml more for a 6–8 kg load"
 }
