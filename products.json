@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-11",
+  "version": "2026-10-11-v2",
   "products": [
     {
       "id": "color-gel",
@@ -125,6 +125,74 @@
         ]
       ],
       "source": "https://www.dm.cz/p/d/1675190/denkmit-praci-prasek-na-barevne-pradlo-ultra-sensitive"
+    },
+    {
+      "id": "black-gel",
+      "name": "Denkmit Black Sensation — Gel",
+      "kind": "liquid",
+      "standardKg": 2.5,
+      "capMl": 38,
+      "doses": [
+        [
+          25,
+          50,
+          75
+        ],
+        [
+          25,
+          50,
+          75
+        ],
+        [
+          50,
+          75,
+          100
+        ]
+      ],
+      "source": "https://www.dm.de/p/d/1410877/denkmit-feinwaschmittel-black-sensation-fluessig",
+      "sourceNote": "Bottle label; soft and medium water share the same dosage."
+    },
+    {
+      "id": "care-gel",
+      "name": "Denkmit Color & Care — Gel",
+      "kind": "liquid",
+      "standardKg": 2.5,
+      "capMl": null,
+      "doses": [
+        [
+          40,
+          80,
+          100
+        ],
+        [
+          50,
+          100,
+          120
+        ],
+        [
+          80,
+          120,
+          125
+        ]
+      ],
+      "loadAdjustments": {
+        "smallKgMax": 1.25,
+        "smallMl": -10,
+        "largeKgMin": 6,
+        "largeKgMax": 8,
+        "largeMl": 10
+      },
+      "source": "https://www.dm.de/p/d/1302030/denkmit-feinwaschmittel-color-und-care",
+      "sourceNote": "Bottle label; half load -10 ml, 6–8 kg +10 ml."
+    },
+    {
+      "id": "hygiene-rinse",
+      "name": "Denkmit Wäsche Hygienespüler — Rinse additive",
+      "kind": "additive",
+      "standardKg": null,
+      "fixedMl": 75,
+      "source": "https://www.dm.de/",
+      "sourceNote": "Hygiene rinse additive, not detergent. Follow the bottle label for placement and use."
     }
   ]
 }
