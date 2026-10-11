@@ -60,7 +60,13 @@ function renderProductArt(product) {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 36 48');
-  const shapes = [
+  const shapes = product.kind === 'powder' ? [
+    ['rect', {x:5,y:5,width:26,height:40,rx:2,fill:body,stroke:'#829b92','stroke-width':'1.1'}],
+    ['path', {d:'M5 12h26',stroke:accent,'stroke-width':3}],
+    ['rect', {x:8,y:18,width:20,height:20,rx:1,fill:'#ffffff',stroke:'#dce6e1'}],
+    ['rect', {x:9,y:25,width:18,height:9,rx:1,fill:accent}],
+    ['path', {d:'M12 21h12',stroke:'#67877b','stroke-width':1.5}]
+  ] : [
     ['path', {d:'M13 3h10v5l5 6 2 28q0 4-4 4H10q-4 0-4-4l2-28 5-6Z',fill:body,stroke:'#829b92','stroke-width':'1.1'}],
     ['rect', {x:11,y:1,width:14,height:6,rx:2,fill:accent}],
     ['rect', {x:9,y:19,width:18,height:19,rx:3,fill:'#ffffff',stroke:'#dce6e1'}],
