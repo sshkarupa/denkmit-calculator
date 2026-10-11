@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Denkmit Dosage Calculator",
+  "short_name": "Denkmit",
+  "description": "Offline laundry detergent dosage calculator",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef4f1",
+  "theme_color": "#17544d",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
