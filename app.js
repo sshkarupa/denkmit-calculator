@@ -52,10 +52,33 @@ function estimatedDosage(product, baseDose, weight) {
   const scaled = baseDose * Math.max(0.55, ratio);
   return Math.max(5, Math.round(scaled / 5) * 5);
 }
+function renderProductArt(product) {
+  const colors = product.kind === 'powder' ? ['#edf2eb', '#438a78'] : product.id === 'black-gel' ? ['#32263c', '#b38dc2'] : product.id === 'sport-gel' ? ['#c5e7ef', '#2184aa'] : product.id === 'care-gel' ? ['#d8eef1', '#68a9b8'] : product.id === 'wool-gel' ? ['#f2f5eb', '#86a99a'] : product.id === 'hygiene-rinse' ? ['#dcecf7', '#4d91b8'] : ['#eef2ef', '#8bb4b1'];
+  const [body, accent] = colors;
+  const art = document.querySelector('#product-art');
+  art.replaceChildren();
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 36 48');
+  const shapes = [
+    ['path', {d:'M13 3h10v5l5 6 2 28q0 4-4 4H10q-4 0-4-4l2-28 5-6Z',fill:body,stroke:'#829b92','stroke-width':'1.1'}],
+    ['rect', {x:11,y:1,width:14,height:6,rx:2,fill:accent}],
+    ['rect', {x:9,y:19,width:18,height:19,rx:3,fill:'#ffffff',stroke:'#dce6e1'}],
+    ['rect', {x:10,y:25,width:16,height:9,rx:1,fill:accent}],
+    ['path', {d:'M13 22h10',stroke:'#67877b','stroke-width':1.5}]
+  ];
+  for (const [tag, attrs] of shapes) {
+    const node = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)));
+    svg.append(node);
+  }
+  art.append(svg);
+}
 function renderResult() {
   const product = products.find((item) => item.id === state.product);
   if (!product) return;
-  const base = product.doses[state.hardness][state.soil];
+  const base = product.kind === 'additive' ? product.fixedMl : product.doses[state.hardness][state.soil];
+  renderProductArt(product);
   const dose = estimatedDosage(product, base, state.weight);
   $('#dose').textContent = `${format(dose, 0)} ml`;
   const extras = [];
